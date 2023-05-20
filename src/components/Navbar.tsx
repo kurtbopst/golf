@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/pro-solid-svg-icons";
@@ -9,8 +9,11 @@ import { faMedal } from "@fortawesome/pro-duotone-svg-icons";
 import { faBooks } from "@fortawesome/sharp-solid-svg-icons";
 
 const NavBar = () => {
-  const [value, setValue] = useState(0);
-  const router = useRouter();
+  const [value, setValue] = useState<string>("home");
+
+  const handlePress = async (route: string) => {
+    await Router.push(`/${route}`);
+  };
 
   return (
     <Box
@@ -24,9 +27,9 @@ const NavBar = () => {
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
+        onChange={(event, newValue: string) => {
           setValue(newValue);
-          router.push(`/${event.currentTarget.id}`);
+          void Router.push(`/${event.currentTarget.id}`);
         }}
       >
         <BottomNavigationAction

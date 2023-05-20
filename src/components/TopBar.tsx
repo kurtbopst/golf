@@ -26,7 +26,7 @@ const TopBar = () => {
         <Link href="/Home">
           <Duotone className="fa-duotone fa-golf-flag-hole text-white mr-2" />
           <h1 className="text-white text-lg font-medium hidden md:block">
-            Big Jeff's Golfing Fun Times
+            Big Jeff&apos;s Golfing Fun Times
           </h1>
         </Link>
 
